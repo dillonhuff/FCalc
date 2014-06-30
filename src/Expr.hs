@@ -1,3 +1,5 @@
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 module Expr(
   toRPN,
   add, sub, mul, Expr.div, num) where
