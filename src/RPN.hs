@@ -1,5 +1,5 @@
 module RPN(
-  RPN, push, op) where
+  RPN, push, op, moduleFromRPNCode) where
 
 import Control.Monad.State
 
@@ -38,6 +38,9 @@ data OpStack
        
 initialStack :: OpStack
 initialStack = OpStack 0 [] [] Nothing
+
+moduleFromRPNCode :: String -> [RPN] -> AST.Module
+moduleFromRPNCode name rpnCode = genModule name [(genFunc "entry" rpnCode)]
 
 genModule :: String -> [Definition] -> AST.Module
 genModule name defs = Module name Nothing Nothing defs

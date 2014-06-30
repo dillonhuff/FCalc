@@ -8,7 +8,7 @@ import RPN
 
 data Expr
      = BinOp String Expr Expr
-     | Num Float
+     | Num Double
        deriving (Eq, Ord, Show)
        
 add = BinOp "+"
